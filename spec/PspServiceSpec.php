@@ -11,7 +11,6 @@ class PspServiceSpec extends ObjectBehavior
     }
 
     public function it_should_make_an_approval() {
-        $this->approve()->shouldBe(true);
-        $this->approve()->shouldBe(true);
+        $this->approve()->shouldBe("success");
     }
 }

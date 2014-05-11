@@ -19,17 +19,21 @@ class EventDispatcherSpec extends ObjectBehavior
 //        $this->shouldImplement('SubscriberInterface');
 //    }
 
-    function it_should_invoke_the_subscribed_listener($event)
+    function it_should_invoke_the_subscribed_listener(\PspService $pspService)
     {
         $event = new \ReservationCreatedEvent();
+        $pspService->approve()->willReturn("success");
+
+        $callable = function ($pspService) {
+            return $pspService->approve();
+        };
 
         $this->on(
             "ReservationCreatedEvent",
-            $callable = function () {
-                return "A new reservation has been created";
-            }
+            $callable,
+            $pspService
         );
-        $this->emit($event)->shouldBeEqualTo("A new reservation has been created");
+        $this->emit($event)->shouldBeEqualTo("success");
 
     }
 }
