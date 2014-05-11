@@ -19,7 +19,8 @@ class Broker
             "ReservationCreatedEvent",
             function () {
                 return "Reservation created";
-            }
+            },
+            $this->getPspService()
         );
     }
 

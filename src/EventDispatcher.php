@@ -7,6 +7,10 @@ class EventDispatcher
 {
     private $listener = array();
 
+    /**
+     * @param Event $event
+     * @return mixed
+     */
     public function emit(Event $event)
     {
         $className = get_class($event);
