@@ -8,6 +8,10 @@ class Broker
     /** @var  PspService $pspService */
     private $pspService;
 
+    /**
+     * @param EventDispatcher $eventDispatcher
+     * @param PspService $pspService
+     */
     public function __construct(
         EventDispatcher $eventDispatcher,
         PspService $pspService

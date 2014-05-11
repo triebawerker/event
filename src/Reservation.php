@@ -1,5 +1,8 @@
 <?php
 
+/**
+ * Class Reservation
+ */
 class Reservation
 {
 
