@@ -26,10 +26,10 @@ class EventDispatcherSpec extends ObjectBehavior
         $this->on(
             "ReservationCreatedEvent",
             $callable = function () {
-                return "ABC";
+                return "A new reservation has been created";
             }
         );
-        $this->emit($event)->shouldBeEqualTo("ABC");
+        $this->emit($event)->shouldBeEqualTo("A new reservation has been created");
 
     }
 }

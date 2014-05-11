@@ -9,7 +9,6 @@ class EventDispatcher
 
     public function emit(Event $event)
     {
-
         $className = get_class($event);
         if (array_key_exists($className, $this->listener)) {
             foreach ($this->listener[$className] as $callable) {
