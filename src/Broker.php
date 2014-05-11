@@ -2,12 +2,18 @@
 
 class Broker
 {
-    /**
-     * @var EventDispatcher
-     */
+    /** @var  EventDispatcher $eventDispatcher */
     private $eventDispatcher;
 
-    public function __construct($eventDispatcher) {
+    /** @var  PspService $pspService */
+    private $pspService;
+
+    public function __construct(
+        EventDispatcher $eventDispatcher,
+        PspService $pspService
+    ) {
+        $this->pspService = $pspService;
+
         $this->eventDispatcher = $eventDispatcher;
         $this->eventDispatcher->on(
             "ReservationCreatedEvent",
@@ -17,5 +23,11 @@ class Broker
         );
     }
 
-
+    /**
+     * @return PspService
+     */
+    public function getPspService()
+    {
+        return $this->pspService;
+    }
 }
