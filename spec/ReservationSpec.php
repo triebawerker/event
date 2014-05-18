@@ -8,8 +8,12 @@ use Prophecy\Argument;
 class ReservationSpec extends ObjectBehavior
 {
 
-    function it_is_initializable()
+    public function it_is_initializable()
     {
         $this->shouldHaveType('Reservation');
+    }
+
+    public function it_has_an_approval() {
+        $this->getStatus()->shouldBeEqualTo("unapproved");
     }
 }

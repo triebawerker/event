@@ -6,8 +6,14 @@
 class Reservation
 {
 
-    public function complete()
+    /** @var string $status */
+    private $status = "unapproved";
+
+    /**
+     * @return string
+     */
+    public function getStatus()
     {
-        $this->eventDispatcher->emit(new ReservationCreatedEvent());
+        return $this->status;
     }
 }
