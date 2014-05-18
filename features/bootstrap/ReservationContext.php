@@ -36,9 +36,9 @@ class ReservationContext extends BehatContext
     }
 
     /**
-     * @Given /^there is a Rerservation$/
+     * @Given /^there is a Reservation$/
      */
-    public function thereIsARerservation()
+    public function thereIsAReservation()
     {
         throw new PendingException();
     }
